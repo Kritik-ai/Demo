@@ -1,0 +1,18 @@
+name: KritikAI
+on:
+  pull_request:
+    types: [opened]
+jobs:
+  kritikai:
+    permissions:
+      contents: read
+      pull-request: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        o
+      - name: KritikAI code review
+        uses: Kritik-ai/workflow@0.0.1
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          kritik-token: ${{ secrets.KRITIK_TOKEN }}
